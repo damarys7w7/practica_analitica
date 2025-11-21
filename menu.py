@@ -1,13 +1,16 @@
 from Persona import Persona
+from Persona import editar_persona, eliminar_persona 
 
 def menu():
     persona = Persona()
 
     while True:
-        print("--- MENÚ ---")
+        print("\n===== MENÚ PRINCIPAL =====")
         print("1. Agregar datos")
         print("2. Consultar datos")
-        print("3. Salir")
+        print("3. Editar datos")
+        print("4. Eliminar datos")
+        print("5. Salir")
 
         opcion = input("Seleccione una opción: ")
 
@@ -20,7 +23,7 @@ def menu():
             print("Datos agregados correctamente.")
 
         elif opcion == "2":
-            print("\n--- DATOS DE LA PERSONA ---")
+            print("--- DATOS DE LA PERSONA ---")
             print(f"Nombre: {persona.nombre}")
             print(f"Apellido: {persona.apellido}")
             print(f"Ciudad: {persona.ciudad}")
@@ -28,6 +31,12 @@ def menu():
             print(f"Correo: {persona.correo}")
 
         elif opcion == "3":
+            editar_persona(persona)
+
+        elif opcion == "4":
+            eliminar_persona(persona)
+
+        elif opcion == "5":
             print("Saliendo del programa...")
             break
 
