@@ -1,10 +1,11 @@
 class Persona:
-    def __init__(self):
+    def _init_(self):
         self.__nombre = None
         self.__apellido = None
         self.__ciudad = None
         self.__edad = None
-        self.__correo = None
+        self.__tipo_documento = None
+        self.__documento = None
 
     
     @property
@@ -33,7 +34,7 @@ class Persona:
     def ciudad(self, valor):
         self.__ciudad = valor
 
-    
+
     @property
     def edad(self):
         return self.__edad
@@ -44,11 +45,24 @@ class Persona:
 
     
     @property
-    def correo(self):
-        return self.__correo
+    def tipo_documento(self):
+        return self.__tipo_documento
 
-    @correo.setter
-    def correo(self, valor):
-        self.__correo = valor
+    @tipo_documento.setter
+    def tipo_documento(self, valor):
+        if valor.upper() in ["CC", "TI"]:
+            self.__tipo_documento = valor.upper()
+        else:
+            raise ValueError("El tipo de documento debe ser 'CC' o 'TI'.")
 
+    
+    @property
+    def documento(self):
+        return self.__documento
 
+    @documento.setter
+    def documento(self, valor):
+        if valor % 2 != 0:   
+            self.__documento = valor
+        else:
+            raise ValueError("El número de documento debe ser impar.")
